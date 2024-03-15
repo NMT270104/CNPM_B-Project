@@ -31,6 +31,7 @@
 
           <!-- Horizontal Form -->
           <form>
+            @csrf
             <div class="row mb-3">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Full Name</label>
               <div class="col-sm-10">
@@ -78,7 +79,7 @@
             <div class="card-body">
               <h5 class="card-title">Employee List <span>| Today</span></h5>
 
-              <table class="table table-borderless datatable">
+              <table class="table table-bordered table-striped table-hover datatable">
                 <thead>
                   <tr>
                     <th class="text-center" scope="col" style="width: 12.5%;">Id Employee</th>
@@ -91,35 +92,18 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($viewData['employees'] as $employee)
                   <tr>
-                    <th scope="row" class="text-center"><a href="#">NV0001</a></th>
-                    <td  class="text-center">Nguyen Van A</td>
-                    <td  class="text-center">0123456789</td>
-                    <td  class="text-center">20-1-2000</td>
-                    <td  class="text-center">Sales</td>
+                    <th scope="row" class="text-center"><a href="#">{{$employee -> getId()}}</a></th>
+                    <td  class="text-center">{{$employee -> getName()}}</td>
+                    <td  class="text-center">{{$employee -> getSdt()}}</td>
+                    <td  class="text-center">{{$employee -> getCreatedAt()}}</td>
+                    <td  class="text-center">{{$employee -> getPosition()}}</td>
                     <td  class="text-center"><span class="badge bg-success">on</span></td>
                     <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
                   </tr>
-                  <tr>
-                    <th scope="row" class="text-center"><a href="#">NV0001</a></th>
-                    <td  class="text-center">Nguyen Van A</td>
-                    <td  class="text-center">0123456789</td>
-                    <td  class="text-center">20-1-2000</td>
-                    <td  class="text-center">Sales</td>
-                    <td  class="text-center"><span class="badge bg-success">on</span></td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
-
-                  </tr>
-                  <tr>
-                    <th scope="row" class="text-center"><a href="#">NV0001</a></th>
-                    <td  class="text-center">Nguyen Van A</td>
-                    <td  class="text-center">0123456789</td>
-                    <td  class="text-center">20-1-2000</td>
-                    <td  class="text-center">Sales</td>
-                    <td  class="text-center"><span class="badge bg-success">on</span></td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
-
-                  </tr>
+                  @endforeach
+                  
                 </tbody>
               </table>
 

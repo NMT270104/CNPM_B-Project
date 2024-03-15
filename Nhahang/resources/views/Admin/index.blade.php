@@ -19,6 +19,7 @@
   
             <!-- Horizontal Form -->
             <form>
+              @csrf
               <div class="row mb-3">
                 <div class="row mb-3">
                     <label for="Id Employee" class="col-sm-2 col-form-label">Id Employee</label>
@@ -75,7 +76,7 @@
               </div>
               <h5 class="card-title">Revenue <span>| Today</span></h5>
 
-              <table class="table table-borderless datatable">
+              <table class="table table-bordered table-striped table-hover datatable">
                 <thead>
                   <tr>
                     <th class="text-center" scope="col" style="width: 12.5%;">Invoice Numer</th>

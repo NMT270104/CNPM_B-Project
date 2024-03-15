@@ -19,3 +19,5 @@ Route::get("/","App\Http\Controllers\Admin\AdminHomeController@index")->name("Ad
 Route::get("/Admin/Employee","App\Http\Controllers\Admin\AdminEmployeeController@index")->name("Admin.employee");
 Route::get("/Admin/Material","App\Http\Controllers\Admin\AdminMaterialController@index")->name("Admin.material");
 Route::get("/Admin/Table","App\Http\Controllers\Admin\AdminTableController@index")->name("Admin.table");
+Route::get("/Admin/TypeProduct","App\Http\Controllers\Admin\AdminTypeProductController@index")->name("Admin.typeproduct");
+Route::get("/Admin/Product","App\Http\Controllers\Admin\AdminProductController@index")->name("Admin.product");

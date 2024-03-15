@@ -28,7 +28,7 @@
   <link href="{{asset('assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Template Main CSS File -->
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 
@@ -214,7 +214,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="https://ui-avatars.com/api/?name=Admin" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -291,14 +291,26 @@
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.material') }}">
-          <i class="bi bi-grid"></i>
+          <i class="fa-brands fa-stack-overflow"></i>
           <span>Material</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.table') }}">
-          <i class="bi bi-grid"></i>
+          <i class="fa-solid fa-table-cells"></i>
           <span>Table</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{ route('Admin.typeproduct') }}">
+          <i class="fa-solid fa-tag"></i>
+          <span>Type Product</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="{{ route('Admin.product') }}">
+          <i class="fa-solid fa-bowl-food"></i>
+          <span>Product</span>
         </a>
       </li>
     </ul>

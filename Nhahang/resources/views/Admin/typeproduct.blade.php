@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="pagetitle">
-    <h1>Table</h1>
+    <h1>Type Product</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item active"><a href="{{ route('Admin.index') }}">Home</a></li>
-        <li class="breadcrumb-item active">Table</li>
+        <li class="breadcrumb-item active">Type Product</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -15,36 +15,19 @@
   <section class="section Home">
     <div class="row justify-content-center">
       <div class="card-body">
-          <h5 class="card-title">Add Table</h5>
+          <h5 class="card-title">Add Type Product</h5>
   
             <!-- Horizontal Form -->
             <form>
-              @csrf
+                @csrf
               <div class="row mb-3">
+                
               <div class="row mb-3">
-                <label for="Table" class="col-sm-2 col-form-label">Number Table</label>
+                <label for="Type" class="col-sm-2 col-form-label">Name Type</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="Table">
+                  <input type="text" class="form-control" id="Type">
                 </div>
               </div>
-
-              <div class="row mb-3">
-                <label for="Quantity" class="col-sm-2 col-form-label">Quantity</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" id="Quantity" min="0">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label for="position" class="col-sm-2 col-form-label">Status</label>
-                <div class="col-sm-10">
-                  <select  class="form-select"  name="position" id="position">
-                    <option value="Sales">order</option>
-                    <option value="Serve">empty</option>
-                  </select>
-                </div>
-              </div>
-
               <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
@@ -68,27 +51,32 @@
                   <li><a class="dropdown-item" href="#">This Year</a></li>
                 </ul>
               </div>
-              <h5 class="card-title">Table List <span>| Today</span></h5>
+              <h5 class="card-title">Type List <span>| Today</span></h5>
 
               <table class="table table-bordered table-striped table-hover datatable">
                 <thead>
                   <tr>
-                    <th class="text-center" scope="col" style="width: 20%;">Id Table</th>
-                    <th class="text-center" scope="col" style="width: 20%;">Number Table</th>
-                    <th class="text-center" scope="col" style="width: 20%;">Quantity</th>
-                    <th class="text-center" scope="col" style="width: 20%;">Status</th>
-                    <th style="width: 20%;"></th>
+                    <th class="text-center" scope="col" style="width: 12.5%;">ID Type</th>
+                    <th class="text-center" scope="col" style="width: 12.5%;">Name Type</th>
+                    <th style="width: 6%;"></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row" class="text-center"><a href="#">0011</a></th>
-                    <td  class="text-center">10</td>
-                    <td  class="text-center">10</td>
-                    <td  class="text-center"><span class="badge bg-success">order</span></td>
+                    <td  class="text-center">Name Type</td>
                     <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
                   </tr>
-                  
+                  <tr>
+                    <th scope="row" class="text-center"><a href="#">0011</a></th>
+                    <td  class="text-center">Name Type</td>
+                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-center"><a href="#">0011</a></th>
+                    <td  class="text-center">Name Type</td>
+                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
+                  </tr>
                 </tbody>
               </table>
 
