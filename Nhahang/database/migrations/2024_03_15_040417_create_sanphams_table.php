@@ -8,7 +8,7 @@ class CreateSanphamsTable extends Migration
     public function up()
     {
         Schema::create('sanphams', function (Blueprint $table) {
-            $table->char('MASP', 4)->primary();
+            $table->char('MASP', 10)->primary();
             $table->string('TENSP', 40);
             $table->char('MALOAISP', 4);
             $table->string('DVT', 20);

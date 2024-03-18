@@ -28,27 +28,39 @@
             </div>
       <div class="card-body">
           <h5 class="card-title">Add Employee</h5>
-
+          @if($errors->any())
+          <ul class="alert alert-danger list-unstyled">
+              @foreach($errors->all() as $error)
+                  <li>- {{ $error }}</li>
+              @endforeach
+          </ul>
+          @endif
           <!-- Horizontal Form -->
-          <form>
+          <form method="POST" action="{{ route('admin.employee.add') }}" enctype="multipart/form-data">
             @csrf
+            <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">ID Employee</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputText" value="{{old('MANV')}}" name="MANV">
+                </div>
+              </div>
             <div class="row mb-3">
               <label for="inputEmail3" class="col-sm-2 col-form-label">Full Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputText">
+                <input type="text" class="form-control" id="inputText" value="{{old('HOTEN')}}" name="HOTEN">
               </div>
             </div>
             <div class="row mb-3">
               <label for="phone" class="col-sm-2 col-form-label">Phone</label>
               <div class="col-sm-10">
-                <input type="number" class="form-control" id="phone">
+                <input type="number" class="form-control" id="phone" value="{{old('SDT')}}" name="SDT">
               </div>
             </div>
             <div class="row mb-3">
               <label for="position" class="col-sm-2 col-form-label">Position</label>
               <div class="col-sm-10">
-                <select  class="form-select"  name="position" id="position">
-                  <option value="Sales">Sales</option>
+                <select  class="form-select"  name="CHUCVU" id="position">
+                  <option value="Sales">{{old('CHUCVU')}}Sales</option>
                   <option value="Serve">Serve</option>
                 </select>
               </div>
@@ -88,19 +100,53 @@
                     <th class="text-center" scope="col" style="width: 12.5%;">Begin date</th>
                     <th class="text-center" scope="col" style="width: 12.5%;">Position</th>  
                     <th class="text-center" scope="col" style="width: 12.5%;">Status</th>
-                    <th style="width: 6%;"></th>
+                    <th style="width: 2%;"></th>
+                    <th style="width: 2%;"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($viewData['employees'] as $employee)
+                  @foreach ($viewData['nhanviens'] as $nhanvien)
                   <tr>
-                    <th scope="row" class="text-center"><a href="#">{{$employee -> getId()}}</a></th>
-                    <td  class="text-center">{{$employee -> getName()}}</td>
-                    <td  class="text-center">{{$employee -> getSdt()}}</td>
-                    <td  class="text-center">{{$employee -> getCreatedAt()}}</td>
-                    <td  class="text-center">{{$employee -> getPosition()}}</td>
+                    <th scope="row" class="text-center"><a href="#">{{$nhanvien -> getMANV()}}</a></th>
+                    <td  class="text-center">{{$nhanvien -> getHOTEN()}}</td>
+                    <td  class="text-center">{{$nhanvien -> getSDT()}}</td>
+                    <td  class="text-center">{{$nhanvien -> getCreatedAt()}}</td>
+                    <td  class="text-center">{{$nhanvien -> getCHUCVU()}}</td>
                     <td  class="text-center"><span class="badge bg-success">on</span></td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
+                    <td>
+                        <a href="#" class="border border-2 border-black text-center" style=" padding: 6px">
+                            <i class="bi bi-pencil-square fs-5" style="color: blue;"></i>
+                        </a> 
+                    </td>
+                    <td>
+                        
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modaldelete">
+                                <i class="bi bi-trash fs-5" style="color: red;"></i>
+                            </button>
+                            <!-- Modal delete -->
+                            <div class="modal fade" id="modaldelete" tabindex="-1" aria-labelledby="deleteModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="deleteModalLabel">Delete</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    Are you sure you want to delete ?
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    
+                                    <form action="{{ route('admin.employee.delete', $nhanvien -> getMANV()) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">DELETE</button>
+                                    </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                    </td>
                   </tr>
                   @endforeach
                   

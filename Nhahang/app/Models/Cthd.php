@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Cthd extends Model
 {
     use HasFactory;
+   
+    
 }

@@ -9,14 +9,14 @@ class CreateNhanviensTable extends Migration
     public function up()
     {
         Schema::create('nhanviens', function (Blueprint $table) {
-            $table->char('MANV', 4)->primary();
-            $table->string('NHOM_ID');
+            $table->char('MANV', 10)->primary();
+            //$table->string('NHOM_ID');
             $table->string('HOTEN', 40);
             $table->string('SDT', 20);
-            $table->dateTime('NGVL');
-            $table->string('MATKHAU', 50);
+            $table->timestamps();
+            $table->string('MATKHAU', 50) -> nullable() -> null;
             $table->string('CHUCVU', 50);
-            $table->foreign('NHOM_ID')->references('NHOM_ID')->on('nhomquyens');
+            //$table->foreign('NHOM_ID')->references('NHOM_ID')->on('nhomquyens');
         });
     }
 
