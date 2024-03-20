@@ -69,11 +69,11 @@ class Sanpham extends Model
         ->attributes['MOTA'] = $MOTA;
         }
     
-    public function getImage() {
+    public function getIMAGE() {
         return $this
         ->attributes['IMAGE'];
         }
-    public function setImage($IMAGE) {
+    public function setIMAGE($IMAGE) {
         $this
         ->attributes['IMAGE'] = $IMAGE;
         }

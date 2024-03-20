@@ -8,13 +8,14 @@ class CreateSanphamsTable extends Migration
     public function up()
     {
         Schema::create('sanphams', function (Blueprint $table) {
-            $table->char('MASP', 10)->primary();
-            $table->string('TENSP', 40);
-            $table->char('MALOAISP', 4);
-            $table->string('DVT', 20);
+            $table->increments('MASP');
+            $table->string('TENSP');
+            $table->unsignedInteger('MALOAISP');   
+            $table->string('DVT');
             $table->decimal('GIA', 10, 2);
-            $table->string('MOTA', 255);
-            $table->string('IMAGE', 255);
+            $table->string('MOTA');
+            $table->string('IMAGE', 255);   
+            $table->timestamps();
             $table->foreign('MALOAISP')->references('MALOAISP')->on('loaisps');
         });
     }

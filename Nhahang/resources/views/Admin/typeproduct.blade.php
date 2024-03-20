@@ -127,12 +127,12 @@
                   <div class="modal-dialog">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa nhân viên</h5>
+                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa Loại</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal"
                                   aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                              <p>Bạn có chắc chắn muốn xóa nhân viên này?</p>
+                              <p>Bạn có chắc chắn muốn xóa Loại này?</p>
                           </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-secondary"

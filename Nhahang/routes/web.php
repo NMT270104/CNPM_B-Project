@@ -60,9 +60,9 @@ Route::delete('/Admin/TypeProduct/{MALOAISP}/delete','App\Http\Controllers\Admin
 Route::get("/Admin/Product","App\Http\Controllers\Admin\AdminProductController@index")->name("Admin.product");
 //CRUD san pham
 Route::post("/Admin/Product/add","App\Http\Controllers\Admin\AdminProductController@add")->name("admin.product.add");
-Route::get("/Admin/Product/{MANV}/edit","App\Http\Controllers\Admin\AdminProductController@edit")->name("admin.product.edit");
-Route::put('Admin/Product/{MANV}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
-Route::delete('/Admin/Product/{MANV}/delete','App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
+Route::get("/Admin/Product/{MASP}/edit","App\Http\Controllers\Admin\AdminProductController@edit")->name("admin.product.edit");
+Route::put('Admin/Product/{MASP}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
+Route::delete('/Admin/Product/{MASP}/delete','App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
 
 
 
