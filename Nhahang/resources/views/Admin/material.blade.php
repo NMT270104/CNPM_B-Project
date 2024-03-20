@@ -2,6 +2,7 @@
 @section('title', $viewData['title'])
 @section('content')
 
+
 <div class="pagetitle">
     <h1>Material</h1>
     <nav>
@@ -93,24 +94,6 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row" class="text-center"><a href="#">NL001</a></th>
-                    <td  class="text-center">cu cai</td>
-                    <td  class="text-center">cu</td>
-                    <td  class="text-center">rau</td>
-                    <td  class="text-center">150</td>
-                    <td  class="text-center">10.000</td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" class="text-center"><a href="#">NL001</a></th>
-                    <td  class="text-center">cu cai</td>
-                    <td  class="text-center">cu</td>
-                    <td  class="text-center">rau</td>
-                    <td  class="text-center">150</td>
-                    <td  class="text-center">10.000</td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
-                  </tr>
                   <tr>
                     <th scope="row" class="text-center"><a href="#">NL001</a></th>
                     <td  class="text-center">cu cai</td>

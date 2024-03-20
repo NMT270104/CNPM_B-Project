@@ -114,17 +114,67 @@
                     <td  class="text-center">{{$nhanvien -> getCHUCVU()}}</td>
                     <td  class="text-center"><span class="badge bg-success">on</span></td>
                     <td>
-                        <a href="#" class="border border-2 border-black text-center" style=" padding: 6px">
+                        <button type="button" class="border border-2 border-black text-center" data-bs-toggle="modal" data-bs-target="#modalupdate{{$nhanvien->getMANV()}}">
                             <i class="bi bi-pencil-square fs-5" style="color: blue;"></i>
-                        </a> 
+                        </button>
+                        
+                    <!-- Modal update-->
+                    <div style="width:90%" class="modal fade" id="modalupdate{{ $nhanvien->getMANV() }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="updateModalLabel{{ $nhanvien->getMANV() }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 150%">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabelUpdate">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('admin.employee.update', ['MANV' => $nhanvien->getMANV()]) }}" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="row mb-3">
+    <label for="inputText{{ $nhanvien->getMANV() }}" class="col-sm-2 col-form-label">ID Employee</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputText{{ $nhanvien->getMANV() }}" value="{{ $nhanvien->getMANV() }}" name="MANV">
+    </div>
+</div>
+<div class="row mb-3">
+    <label for="inputText{{ $nhanvien->getMANV() }}" class="col-sm-2 col-form-label">Full Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputText{{ $nhanvien->getMANV() }}" value="{{ $nhanvien->getHOTEN() }}" name="HOTEN">
+    </div>
+</div>
+<div class="row mb-3">
+    <label for="phone{{ $nhanvien->getMANV() }}" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+        <input type="number" class="form-control" id="phone{{ $nhanvien->getMANV() }}" value="{{ $nhanvien->getSDT() }}" name="SDT">
+    </div>
+</div>
+<div class="row mb-3">
+    <label for="position{{ $nhanvien->getMANV() }}" class="col-sm-2 col-form-label">Position</label>
+    <div class="col-sm-10">
+        <select class="form-select" name="CHUCVU" id="position{{ $nhanvien->getMANV() }}">
+            <option value="Sales" {{ $nhanvien->getCHUCVU() == 'Sales' ? 'selected' : '' }}>Sales</option>
+            <option value="Serve" {{ $nhanvien->getCHUCVU() == 'Serve' ? 'selected' : '' }}>Serve</option>
+        </select>
+    </div>
+</div>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
                     </td>
                     <td>
                         
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#modaldelete">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modaldelete{{$nhanvien->getMANV()}}">
                                 <i class="bi bi-trash fs-5" style="color: red;"></i>
                             </button>
                             <!-- Modal delete -->
-                            <div class="modal fade" id="modaldelete" tabindex="-1" aria-labelledby="deleteModalLabel" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+                            <div class="modal fade" id="modaldelete{{$nhanvien->getMANV()}}" tabindex="-1" aria-labelledby="deleteModalLabel{{$nhanvien->getMANV()}}" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
                                 <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
