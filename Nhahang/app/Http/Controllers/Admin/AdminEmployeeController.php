@@ -34,13 +34,10 @@ class AdminEmployeeController extends Controller
         $newNhanvien->save();
         return back();
     }
-<<<<<<< Updated upstream
-    public function delete($MANV){
-        Nhanvien::destroy($MANV);
-=======
+
+
     public function delete($manv){
         Nhanvien::destroy($manv);
->>>>>>> Stashed changes
         return back();
     }
 

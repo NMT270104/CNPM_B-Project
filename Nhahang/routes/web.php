@@ -19,17 +19,15 @@ Route::get("/Admin/Home","App\Http\Controllers\Admin\AdminHomeController@index")
 
 
 Route::get("/Admin/Employee","App\Http\Controllers\Admin\AdminEmployeeController@index")->name("Admin.employee");
-<<<<<<< Updated upstream
 
 //CRUD nhanvien
 Route::post("/Admin/Employee/add","App\Http\Controllers\Admin\AdminEmployeeController@add")->name("admin.employee.add");
 Route::get("/Admin/Employee/{MANV}/edit","App\Http\Controllers\Admin\AdminEmployeeController@edit")->name("admin.employee.edit");
 Route::put('Admin/Employee/{MANV}', 'App\Http\Controllers\Admin\AdminEmployeeController@update')->name('admin.employee.update');
 Route::delete('/Admin/Employee/{MANV}/delete','App\Http\Controllers\Admin\AdminEmployeeController@delete')->name("admin.employee.delete");
-=======
+
 Route::post("/Admin/Employee/add","App\Http\Controllers\Admin\AdminEmployeeController@add")->name("admin.employee.add");
 Route::delete('/Admin/Employee/{manv}/delete','App\Http\Controllers\Admin\AdminEmployeeController@delete')->name("admin.employee.delete");
->>>>>>> Stashed changes
 
 Route::get("/Admin/Material","App\Http\Controllers\Admin\AdminMaterialController@index")->name("Admin.material");
 
