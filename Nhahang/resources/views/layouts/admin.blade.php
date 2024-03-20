@@ -21,8 +21,8 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="{{asset('css/app.css')}}">
-  <script src="{{asset('js/app.js')}}"></script>
+  {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}">  --}}
+  {{-- <script src="{{asset('js/app.js')}}"></script> --}}
   <link href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
@@ -343,7 +343,10 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+<<<<<<< Updated upstream
   <!-- Vendor JS Files -->
+=======
+>>>>>>> Stashed changes
   <script src="{{asset('assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('assets/vendor/chart.js/chart.umd.js')}}"></script>

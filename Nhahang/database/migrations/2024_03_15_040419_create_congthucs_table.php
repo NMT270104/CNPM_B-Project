@@ -8,9 +8,9 @@ class CreateCongthucsTable extends Migration
     public function up()
     {
         Schema::create('congthucs', function (Blueprint $table) {
-            $table->char('MACT', 4)->primary();
-            $table->char('MASP', 4);
-            $table->char('MANL', 4);
+            $table->char('MACT', 10)->primary();
+            $table->char('MASP', 10);
+            $table->char('MANL', 10);
             $table->integer('SL');
             $table->foreign('MASP')->references('MASP')->on('sanphams');
             $table->foreign('MANL')->references('MANL')->on('nguyenlieus');

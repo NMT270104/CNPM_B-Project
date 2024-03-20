@@ -10,7 +10,7 @@ class CreateHoadonsTable extends Migration
         Schema::create('hoadons', function (Blueprint $table) {
             $table->increments('SOHD');
             $table->dateTime('NGHD');
-            $table->char('MANV', 4);
+            $table->char('MANV', 10);
             $table->char('MABAN', 4);
             $table->decimal('TRIGIA', 10, 2);
             $table->foreign('MANV')->references('MANV')->on('nhanviens');

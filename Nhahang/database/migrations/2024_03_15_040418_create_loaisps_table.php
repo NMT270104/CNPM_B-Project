@@ -8,7 +8,7 @@ class CreateLoaispsTable extends Migration
     public function up()
     {
         Schema::create('loaisps', function (Blueprint $table) {
-            $table->char('MALOAISP', 4)->primary();
+            $table->char('MALOAISP', 10)->primary();
             $table->string('TENLOAISP', 40);
         });
     }

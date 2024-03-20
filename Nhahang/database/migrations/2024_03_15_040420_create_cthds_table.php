@@ -9,7 +9,7 @@ class CreateCthdsTable extends Migration
     {
         Schema::create('cthds', function (Blueprint $table) {
             $table->increments('SOHD');
-            $table->char('MASP', 4);
+            $table->char('MASP', 10);
             $table->integer('SL');
             $table->decimal('THANHTIEN', 10, 2);
             $table->foreign('SOHD')->references('SOHD')->on('hoadons');

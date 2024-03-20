@@ -107,6 +107,7 @@
                 <tbody>
                   @foreach ($viewData['nhanviens'] as $nhanvien)
                   <tr>
+<<<<<<< Updated upstream
                     <th scope="row" class="text-center"><a href="#">{{$nhanvien -> getMANV()}}</a></th>
                     <td  class="text-center">{{$nhanvien -> getHOTEN()}}</td>
                     <td  class="text-center">{{$nhanvien -> getSDT()}}</td>
@@ -197,8 +198,49 @@
                                 </div>
                             </div>
                     </td>
+=======
+                      <th scope="row" class="text-center"><a href="#">{{$nhanvien -> getMANV()}}</a></th>
+                      <td class="text-center">{{$nhanvien -> getHOTEN()}}</td>
+                      <td class="text-center">{{$nhanvien -> getSDT()}}</td>
+                      <td class="text-center">{{$nhanvien -> getCreatedAt()}}</td>
+                      <td class="text-center">{{$nhanvien -> getCHUCVU()}}</td>
+                      <td class="text-center"><span class="badge bg-success">on</span></td>
+                      <td>
+                          <a href="{{ url('Admin/Employee/'.$nhanvien -> getMANV(), []) }}" class="border border-2 border-black text-center" style=" padding: 6px">
+                              <i class="bi bi-pencil-square fs-5" style="color: blue;"></i>
+                          </a> 
+                      </td>
+                      <td>
+                          <button type="button" data-bs-toggle="modal" data-bs-target="#modaldelete{{$nhanvien->getMANV()}}">
+                              <i class="bi bi-trash fs-5" style="color: red;"></i>
+                          </button>
+                          <!-- Modal delete -->
+                          <div class="modal fade" id="modaldelete{{$nhanvien->getMANV()}}" tabindex="-1" aria-labelledby="deleteModalLabel{{$nhanvien->getMANV()}}" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+                              <div class="modal-dialog">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="deleteModalLabel{{$nhanvien->getMANV()}}">Delete</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                          Are you sure you want to delete ?
+                                      </div>
+                                      <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <form action="{{ route('admin.employee.delete', $nhanvien -> getMANV()) }}" method="POST">
+                                              @csrf
+                                              @method('DELETE')
+                                              <button type="submit" class="btn btn-danger">DELETE</button>
+                                          </form>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </td>
+>>>>>>> Stashed changes
                   </tr>
                   @endforeach
+
                   
                 </tbody>
               </table>
