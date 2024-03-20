@@ -41,6 +41,8 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  
 </head>
 
 <body>
@@ -341,7 +343,7 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
+  
   <!-- Vendor JS Files -->
   <script src="{{asset('assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
   <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -354,6 +356,54 @@
 
   <!-- Template Main JS File -->
   <script src="{{asset('assets/js/main.js')}}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      //kiem tra manv co ton tai hay không
+        $('#inputMANV, #inputMANVUpdate').on('input', function() {
+            var manv = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('check.manv') }}',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "MANV": manv
+                },
+                success: function(data) {
+                    if (data.exists) {
+                        $('#manvError, #manvUpdateError').html('Mã nhân viên đã tồn tại');
+                    } else {
+                        $('#manvError, #manvUpdateError').html('');
+                    }
+                }
+            });
+        });
+        
+        // kiểm tra ten loai sp có tồn tại hay chưa
+        $('#inputTENLOAI').on('input', function() {
+            var tenloai = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('check.tenloai') }}',
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "TENLOAI": tenloai
+                },
+                success: function(data) {
+                    if (data.exists) {
+                        $('#tenloaiError').html('Tên loại sản phẩm đã tồn tại');
+                    } else {
+                        $('#tenloaiError').html('');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+  
 
 </body>
 

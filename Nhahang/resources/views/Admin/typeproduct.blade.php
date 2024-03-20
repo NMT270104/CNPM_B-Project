@@ -18,14 +18,16 @@
           <h5 class="card-title">Add Type Product</h5>
   
             <!-- Horizontal Form -->
-            <form>
+            <form method="POST" action="{{ route('admin.typeproduct.add') }}" enctype="multipart/form-data">
                 @csrf
               <div class="row mb-3">
                 
               <div class="row mb-3">
                 <label for="Type" class="col-sm-2 col-form-label">Name Type</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="Type">
+                  <input type="text" class="form-control"  id="inputTENLOAI" 
+                  value="{{ old('TENLOAISP') }}" name="TENLOAISP" required>
+                  <div id="tenloaiError" class="text-danger"></div>
                 </div>
               </div>
               <div class="text-center">
@@ -56,27 +58,98 @@
               <table class="table table-bordered table-striped table-hover datatable">
                 <thead>
                   <tr>
-                    <th class="text-center" scope="col" style="width: 12.5%;">ID Type</th>
-                    <th class="text-center" scope="col" style="width: 12.5%;">Name Type</th>
-                    <th style="width: 6%;"></th>
+                    <th class="text-center" scope="col" style="width: 12%;">ID Type</th>
+                    <th class="text-center" scope="col" style="width: 40%;">Name Type</th>
+                    <th style="width: 2%;"></th>
+                    <th style="width: 2%;"></th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($viewData['loaisps'] as $loaisp)
                   <tr>
-                    <th scope="row" class="text-center"><a href="#">0011</a></th>
-                    <td  class="text-center">Name Type</td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
+                    <th scope="row" class="text-center">{{ $loaisp->getMALOAISP() }}</th>
+                    <td  class="text-center">{{ $loaisp->getTENLOAISP() }}</td>
+                    <td>
+                      <button type="button" class="border border-2 border-black text-center"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalupdate{{ $loaisp->getMALOAISP() }}">
+                          <i class="bi bi-pencil-square fs-5" style="color: blue;"></i>
+                      </button>
+                  </td>
+                  <td>
+                      <button type="button" data-bs-toggle="modal"
+                          data-bs-target="#modaldelete{{ $loaisp->getMALOAISP() }}">
+                          <i class="bi bi-trash fs-5" style="color: red;"></i>
+                      </button>
+                  </td>
+              </tr>
+
+              <!-- Modal update-->
+              <div class="modal fade" id="modalupdate{{ $loaisp->getMALOAISP() }}"
+                  data-bs-backdrop="static" data-bs-keyboard="false"
+                  aria-labelledby="updateModalLabel{{ $loaisp->getMALOAISP() }}" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title fs-5" id="staticBackdropLabelUpdate">Cập nhật
+                                  thông tin</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <form method="POST"
+                                  action="{{ route('admin.typeproduct.update', ['MALOAISP' => $loaisp->getMALOAISP()]) }}"
+                                  enctype="multipart/form-data">
+                                  @csrf
+                                  @method('PUT')
+
+                                  <div class="mb-3">
+                                      <label for="inputText{{ $loaisp->getMALOAISP() }}" class="form-label">Name Type</label>
+                                      <input type="text" class="form-control" id="inputText{{ $loaisp->getMALOAISP() }}"
+                                          value="{{ $loaisp->getTENLOAISP() }}" name="TENLOAISP" required>
+                                  </div>
+                                  <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary"
+                                      data-bs-dismiss="modal">Đóng</button>
+                                  <button type="submit" class="btn btn-primary">Cập nhật</button>
+                              </div>
+                              </form>
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Modal delete -->
+              <div class="modal fade" id="modaldelete{{ $loaisp->getMALOAISP() }}" tabindex="-1"
+                  aria-labelledby="deleteModalLabel{{ $loaisp->getMALOAISP() }}"
+                  data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa nhân viên</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                  aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <p>Bạn có chắc chắn muốn xóa nhân viên này?</p>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary"
+                                  data-bs-dismiss="modal">Đóng</button>
+                              <form
+                                  action="{{ route('admin.typeproduct.delete', $loaisp->getMALOAISP()) }}"
+                                  method="POST">
+                                  @csrf
+                                  @method('DELETE')
+                                  <button type="submit" class="btn btn-danger">Xóa</button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
                   </tr>
-                  <tr>
-                    <th scope="row" class="text-center"><a href="#">0011</a></th>
-                    <td  class="text-center">Name Type</td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" class="text-center"><a href="#">0011</a></th>
-                    <td  class="text-center">Name Type</td>
-                    <td><a href="#"><i class="bi bi-pencil-square fs-5" style="color: blue;"></i></a> &nbsp; <a href="#"><i class="bi bi-trash fs-5" style="color: red;"></i></a></td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table>
 

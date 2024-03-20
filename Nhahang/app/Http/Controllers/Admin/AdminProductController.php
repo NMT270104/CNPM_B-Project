@@ -12,4 +12,5 @@ class AdminProductController extends Controller
         $viewData['title'] = "Admin page - Product Admin";
         return view ("Admin.product") -> with("viewData",$viewData);
     }
+
 }

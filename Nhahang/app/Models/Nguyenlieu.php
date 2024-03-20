@@ -11,58 +11,59 @@ class Nguyenlieu extends Model
     protected $primaryKey = 'MANL';
     protected $fillable = ['MANL', 'TENNL', 'DVT', 'LOAI', 'MOTA', 'GIA'];
 
-    public function getMANLAttribute($value)
-    {
-        return strtoupper($value);
-    }
+    public function getMANL() {
+        return $this
+        ->attributes['MANL'];
+        }
+    public function setMANL($MANL) {
+        $this
+        ->attributes['MANL'] = $MANL;
+        }
 
-    public function setMANLAttribute($value)
-    {
-        $this->attributes['MANL'] = strtolower($value);
-    }
+    // Getter và setter cho cột TENNL
+    public function getTENNL() {
+        return $this
+        ->attributes['TENNL'];
+        }
+    public function setTENNL($TENNL) {
+        $this
+        ->attributes['TENNL'] = $TENNL;
+        }
 
-    public function getTENNLAttribute($value)
-    {
-        return strtoupper($value);
-    }
+    // Getter và setter cho cột DVT
+    public function getDVT() {
+        return $this
+        ->attributes['DVT'];
+        }
+    public function setDVT($DVT) {
+        $this
+        ->attributes['DVT'] = $DVT;
+        }
 
-    public function setTENNLAttribute($value)
-    {
-        $this->attributes['TENNL'] = strtolower($value);
-    }
+    // Getter và setter cho cột NGVL
+    public function getLOAI() {
+        return $this
+        ->attributes['LOAI'];
+        }
+    public function setLOAI($LOAI) {
+        $this
+        ->attributes['LOAI'] = $LOAI;
+        }
 
-    public function getDVTAttribute($value)
-    {
-        return strtoupper($value);
-    }
-
-    public function setDVTAttribute($value)
-    {
-        $this->attributes['DVT'] = strtolower($value);
-    }
-
-    public function getMOTAAttribute($value)
-    {
-        return strtoupper($value);
-    }
-
-    public function setMOTAAttribute($value)
-    {
-        $this->attributes['MOTA'] = strtolower($value);
-    }
-
-    public function getLOAIAttribute($value)
-    {
-        return strtoupper($value);
-    }
-
-    public function setLOAIAttribute($value)
-    {
-        $this->attributes['LOAI'] = strtolower($value);
-    }
-
-    public function congthucs()
-    {
-        return $this->hasMany('App\Congthuc', 'MANL', 'MANL');
-    }
+    public function getMOTA() {
+        return $this
+        ->attributes['MOTA'];
+        }
+    public function setMOTA($MOTA) {
+        $this
+        ->attributes['MOTA'] = $MOTA;
+        }
+    public function getGIA() {
+        return $this
+        ->attributes['GIA'];
+        }
+    public function setGIA($GIA) {
+        $this
+        ->attributes['GIA'] = $GIA;
+        }
 }

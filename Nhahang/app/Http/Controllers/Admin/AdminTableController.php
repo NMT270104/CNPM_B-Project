@@ -12,4 +12,5 @@ class AdminTableController extends Controller
         $viewData['title'] = "Admin page - Table Admin";
         return view ("Admin.table") -> with("viewData",$viewData);
     }
+
 }

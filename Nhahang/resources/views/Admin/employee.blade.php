@@ -41,22 +41,24 @@
                     <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">ID Employee</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputText" value="{{ old('MANV') }}"
-                                name="MANV">
+                            <input type="text" class="form-control" id="inputMANV" value="{{ old('MANV') }}"
+                                name="MANV" required>
+                                <div id="manvError" class="text-danger"></div>
                         </div>
+
                     </div>
                     <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Full Name</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputText" value="{{ old('HOTEN') }}"
-                                name="HOTEN">
+                                name="HOTEN" required>
                         </div>
                     </div>
                     <div class="row mb-3">
                         <label for="phone" class="col-sm-2 col-form-label">Phone</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="phone" value="{{ old('SDT') }}"
-                                name="SDT">
+                                name="SDT" required maxlength="10" min="0">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -151,19 +153,20 @@
                                                         @method('PUT')
 
                                                         <div class="mb-3">
-                                                            <label for="inputText{{ $nhanvien->getMANV() }}" class="form-label">ID Nhân viên</label>
-                                                            <input type="text" class="form-control" id="inputText{{ $nhanvien->getMANV() }}"
-                                                                value="{{ $nhanvien->getMANV() }}" name="MANV" >
+                                                            <label for="inputMANVUpdate" class="form-label">ID Nhân viên</label>
+                                                            <input type="text" class="form-control" id="inputMANVUpdate"
+                                                                value="{{ $nhanvien->getMANV() }}" name="MANV" required>
+                                                                <div id="manvUpdateError" class="text-danger"></div>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="inputText{{ $nhanvien->getMANV() }}" class="form-label">Họ và tên</label>
                                                             <input type="text" class="form-control" id="inputText{{ $nhanvien->getMANV() }}"
-                                                                value="{{ $nhanvien->getHOTEN() }}" name="HOTEN">
+                                                                value="{{ $nhanvien->getHOTEN() }}" name="HOTEN" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="phone{{ $nhanvien->getMANV() }}" class="form-label">Số điện thoại</label>
                                                             <input type="number" class="form-control" id="phone{{ $nhanvien->getMANV() }}"
-                                                                value="{{ $nhanvien->getSDT() }}" name="SDT">
+                                                                value="{{ $nhanvien->getSDT() }}" name="SDT" required>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="position{{ $nhanvien->getMANV() }}" class="form-label">Chức vụ</label>

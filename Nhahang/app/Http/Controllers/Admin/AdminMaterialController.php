@@ -13,4 +13,5 @@ class AdminMaterialController extends Controller
         $viewData['title'] = "Admin page - Material Admin";
         return view ("Admin.material") -> with("viewData",$viewData);
     }
+
 }

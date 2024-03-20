@@ -12,29 +12,29 @@ class Loaisp extends Model
     protected $fillable = ['MALOAISP', 'TENLOAISP'];
 
     // Getter và setter cho cột MASP
-    public function getMALOAISPAttribute($value)
-    {
-        return strtoupper($value);
-    }
+    public function getMALOAISP() {
+        return $this
+        ->attributes['MALOAISP'];
+        }
+    public function setMALOAISP($MALOAISP) {
+        $this
+        ->attributes['MALOAISP'] = $MALOAISP;
+        }
 
-    public function setMALOAISPAttribute($value)
-    {
-        $this->attributes['MASP'] = strtolower($value);
-    }
+    // Getter và setter cho cột TENLOAISP
+    public function getTENLOAISP() {
+        return $this
+        ->attributes['TENLOAISP'];
+        }
+    public function setTENLOAISP($TENLOAISP) {
+        $this
+        ->attributes['TENLOAISP'] = $TENLOAISP;
+        }
 
-    public function getTENLOAISPAttribute($value)
-    {
-        return strtoupper($value);
-    }
 
-    public function setTENLOAISPAttribute($value)
-    {
-        $this->attributes['TENLOAISP'] = strtolower($value);
-    }
-    
-
+    //QUAN HỆ 1 NHIỀU VỚI BẢN SAN PHẨM
     public function sanphams()
     {
-        return $this->hasMany('App\Sanpham', 'MALOAISP', 'MALOAISP');
+        return $this->hasMany(Sanpham::class, 'MALOAISP', 'MALOAISP');
     }
 }
