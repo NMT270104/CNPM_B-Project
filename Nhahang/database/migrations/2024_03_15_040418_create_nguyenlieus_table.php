@@ -8,12 +8,13 @@ class CreateNguyenlieusTable extends Migration
     public function up()
     {
         Schema::create('nguyenlieus', function (Blueprint $table) {
-            $table->char('MANL', 10)->primary();
-            $table->string('TENNL', 40);
-            $table->string('DVT', 50);
-            $table->string('LOAI', 50);
-            $table->string('MOTA', 255);
-            $table->decimal('GIA', 10, 2);
+            $table->increments('MANL');
+            $table->string('TENNL');
+            $table->string('DVT');
+            $table->string('LOAI');
+            $table->string('MOTA');
+            $table->string('GIA');
+            $table->timestamps();
         });
     }
 

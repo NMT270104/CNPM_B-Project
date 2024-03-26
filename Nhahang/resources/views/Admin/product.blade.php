@@ -121,12 +121,12 @@
                   <tr>
                     <th scope="row" class="text-center">{{ $sanpham->getMASP() }}</th>
                     <td  class="text-center">{{ $sanpham->getTENSP() }}</td>
-                    <td  class="text-center">
-                      @if($sanpham->loaisp)
+                    <td  class="text-center">{{$sanpham->getMALOAISP()}}
+                      {{-- @if($sanpham->loaisp)
                           {{ $sanpham->loaisp->getTENLOAISP() }}
                       @else
                           N/A
-                      @endif
+                      @endif --}}
 
                     </td>
                     <td  class="text-center">{{ $sanpham->getDVT() }}</td>

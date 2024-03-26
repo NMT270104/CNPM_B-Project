@@ -9,7 +9,7 @@ class CreateNhanviensTable extends Migration
     public function up()
     {
         Schema::create('nhanviens', function (Blueprint $table) {
-            $table->char('MANV', 10)->primary();
+            $table->char('MANV')->primary();
             //$table->string('NHOM_ID');
             $table->string('HOTEN', 40);
             $table->string('SDT', 20);

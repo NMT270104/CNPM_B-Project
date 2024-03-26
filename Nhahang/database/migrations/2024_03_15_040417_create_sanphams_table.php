@@ -12,7 +12,7 @@ class CreateSanphamsTable extends Migration
             $table->string('TENSP');
             $table->unsignedInteger('MALOAISP');   
             $table->string('DVT');
-            $table->decimal('GIA', 10, 2);
+            $table->decimal('GIA');
             $table->string('MOTA');
             $table->string('IMAGE', 255);   
             $table->timestamps();
