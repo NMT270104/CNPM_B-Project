@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="pagetitle">
-    <h1>Product</h1>
+    <h1>Sản phẩm</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('Admin.index') }}">Home</a></li>
-        <li class="breadcrumb-item active">Product</li>
+        <li class="breadcrumb-item"><a href="{{ route('Admin.index') }}">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Sản phẩm</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -16,7 +16,7 @@
     <div class="row justify-content-center">
 
       <div class="card-body">
-          <h5 class="card-title">Add Product</h5>
+          <h5 class="card-title">Thêm sản phẩm</h5>
           @if ($errors->any())
                     <ul class="alert alert-danger list-unstyled">
                         @foreach ($errors->all() as $error)
@@ -28,14 +28,14 @@
           <form method="POST" action="{{ route('admin.product.add') }}" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Name Product</label>
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Tên sản phẩm:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputText" value="{{ old('TENSP') }}" name="TENSP" required>
                 </div>
             </div>
         
             <div class="row mb-3">
-                <label for="position" class="col-sm-2 col-form-label">Name type</label>
+                <label for="position" class="col-sm-2 col-form-label">Tên loại sản phẩm:</label>
                 <div class="col-sm-10">
                     <select class="form-select" name="MALOAISP" id="position">
 
@@ -47,35 +47,35 @@
             </div>
         
             <div class="row mb-3">
-                <label for="DVT" class="col-sm-2 col-form-label">DVT</label>
+                <label for="DVT" class="col-sm-2 col-form-label">Đơn vị tính:</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="DVT" value="{{ old('DVT') }}" name="DVT" required>
                 </div>
             </div>
         
             <div class="row mb-3">
-                <label for="Price" class="col-sm-2 col-form-label">Price</label>
+                <label for="Price" class="col-sm-2 col-form-label">Giá tiền:</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" id="Price" value="{{ old('GIA') }}" name="GIA" required>
                 </div>
             </div>
         
             <div class="row mb-3">
-                <label for="Description" class="col-sm-2 col-form-label">Description</label>
+                <label for="Description" class="col-sm-2 col-form-label">Mô tả:</label>
                 <div class="col-sm-10">
                     <textarea type="text" class="form-control" id="Description" name="MOTA" rows="3" required>{{ old('MOTA') }}</textarea>
                 </div>
             </div>
         
             <div class="row mb-3">
-                <label for="Image" class="col-sm-2 col-form-label">Image</label>
+                <label for="Image" class="col-sm-2 col-form-label">Hình ảnh:</label>
                 <div class="col-sm-10">
                     <input type="file" class="form-control" id="Image" name="IMAGE">
                 </div>
             </div>
         
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Lưu</button>
             </div>
         </form>
         <!-- End Horizontal Form -->
@@ -104,13 +104,13 @@
               <table class="table table-bordered table-striped table-hover datatable">
                 <thead>
                   <tr>
-                    <th class="text-center" scope="col" style="width: 5%;">Id Product</th>
-                    <th class="text-center" scope="col" style="width: 15%;">Name Product</th>
-                    <th class="text-center" scope="col" style="width: 10%;">ID type</th>
-                    <th class="text-center" scope="col" style="width: 5%;">DVT</th>
-                    <th class="text-center" scope="col" style="width: 10%;">Price</th>
-                    <th class="text-center" scope="col" style="width: 10%;">Description</th>  
-                    <th class="text-center" scope="col" style="width: 20%;">Image</th>  
+                    <th class="text-center" scope="col" style="width: 5%;">Mã sản phẩm</th>
+                    <th class="text-center" scope="col" style="width: 15%;">Tên sản phẩm</th>
+                    <th class="text-center" scope="col" style="width: 10%;">Mã loại sản phẩm</th>
+                    <th class="text-center" scope="col" style="width: 5%;">Đơn vị tính</th>
+                    <th class="text-center" scope="col" style="width: 10%;">Giá tiền</th>
+                    <th class="text-center" scope="col" style="width: 10%;">Mô tả</th>  
+                    <th class="text-center" scope="col" style="width: 20%;">Hình ảnh</th>  
                     <th style="width: 2%;"></th>
                     <th style="width: 2%;"></th>
                   </tr>
@@ -169,12 +169,12 @@
 
     
                                   <div class="mb-3">
-                                      <label for="inputText{{ $sanpham->getMASP() }}" class="form-label">Name Product</label>
+                                      <label for="inputText{{ $sanpham->getMASP() }}" class="form-label">Tên sản phẩm:</label>
                                       <input type="text" class="form-control" id="inputText{{ $sanpham->getMASP() }}"
                                           value="{{ $sanpham->getTENSP() }}" name="TENSP" required>
                                   </div>
                                   <div class="mb-3">
-                                      <label for="phone{{ $sanpham->getMASP() }}" class="form-label">Name Type</label>
+                                      <label for="phone{{ $sanpham->getMASP() }}" class="form-label">Tên loại sản phẩm:</label>
                                       <div class="col-sm-10">
                                         <select class="form-select" name="MALOAISP" id="position">
                     
@@ -185,22 +185,22 @@
                                     </div>
                                   </div>
                                   <div class="mb-3">
-                                      <label for="DVT{{ $sanpham->getMASP() }}" class="form-label">DVT</label>
+                                      <label for="DVT{{ $sanpham->getMASP() }}" class="form-label">Đơn vị tính:</label>
                                       <input type="text" class="form-control" id="inputText{{ $sanpham->getMASP() }}"
                                           value="{{ $sanpham->getDVT() }}" name="DVT" required>
                                   </div>
                                   <div class="mb-3">
-                                    <label for="price{{ $sanpham->getMASP() }}" class="form-label">GIA</label>
+                                    <label for="price{{ $sanpham->getMASP() }}" class="form-label">Giá tiền:</label>
                                     <input type="number" class="form-control" id="inputText{{ $sanpham->getMASP() }}"
                                         value="{{ $sanpham->getGIA() }}" name="GIA" required>
                                 </div>
                                 <div class="mb-3">
-                                  <label for="Description{{ $sanpham->getMASP() }}" class="form-label">Description</label>
+                                  <label for="Description{{ $sanpham->getMASP() }}" class="form-label">Mô tả:</label>
                                   <textarea type="number" class="form-control" id="inputText{{ $sanpham->getMASP() }}"
                                        name="MOTA" required>{{ $sanpham->getMOTA() }}</textarea>
                               </div>
                               <div class="mb-3">
-                                <label for="img{{ $sanpham->getMASP() }}" class="form-label">Image</label>
+                                <label for="img{{ $sanpham->getMASP() }}" class="form-label">Hình ảnh:</label>
                                 <input type="file" class="form-control" id="inputText{{ $sanpham->getMASP() }}"
                                      name="IMAGE" required>
                               </div>

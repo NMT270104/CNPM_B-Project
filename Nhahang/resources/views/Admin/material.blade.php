@@ -4,11 +4,11 @@
 
 
     <div class="pagetitle">
-        <h1>Material</h1>
+        <h1>Nguyên liệu</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('Admin.index') }}">Home</a></li>
-                <li class="breadcrumb-item active">Material</li>
+                <li class="breadcrumb-item"><a href="{{ route('Admin.index') }}">Trang chủ</a></li>
+                <li class="breadcrumb-item active">Nguyên liệu</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -17,7 +17,7 @@
         <div class="row justify-content-center">
 
             <div class="card-body">
-                <h5 class="card-title">Add Material</h5>
+                <h5 class="card-title">Thêm nguyên liệu</h5>
                 @if ($errors->any())
                     <ul class="alert alert-danger list-unstyled">
                         @foreach ($errors->all() as $error)
@@ -29,40 +29,40 @@
                 <form method="POST" action="{{ route('admin.material.add') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Name material</label>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Tên nguyên liệu:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="inputText" value="{{ old('TENNL') }}" name="TENNL" required>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="DVT" class="col-sm-2 col-form-label">DVT</label>
+                        <label for="DVT" class="col-sm-2 col-form-label">Đơn vị tính:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="DVT" value="{{ old('DVT') }}" name="DVT" required>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="position" class="col-sm-2 col-form-label">Type</label>
+                        <label for="position" class="col-sm-2 col-form-label">Loại nguyên liệu:</label>
                         <div class="col-sm-10">
                             <select class="form-select" name="LOAI" id="position">
-                                <option value="Cu">cu</option>
-                                <option value="Bo">bo</option>
+                                <option value="Củ">củ</option>
+                                <option value="Bó">bó</option>
                             </select>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="Description" class="col-sm-2 col-form-label">Description</label>
+                        <label for="Description" class="col-sm-2 col-form-label">Mô tả:</label>
                         <div class="col-sm-10">
                             <textarea type="number" class="form-control" id="Description" min="0"  name="MOTA" required>{{ old('MOTA') }}</textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="Price" class="col-sm-2 col-form-label">Price</label>
+                        <label for="Price" class="col-sm-2 col-form-label">Giá tiền:</label>
                         <div class="col-sm-10">
                             <input type="number" min="0" class="form-control" id="Price" value="{{ old('GIA') }}" name="GIA" required>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                     </div>
                 </form><!-- End Horizontal Form -->
 
@@ -85,17 +85,17 @@
                     </div>
 
                     <div class="card-body">
-                        <h5 class="card-title">Material List <span>| Today</span></h5>
+                        <h5 class="card-title">Danh sách nguyên liệu<span>| Today</span></h5>
 
                         <table class="table table-bordered table-striped table-hover datatable">
                             <thead>
                                 <tr>
-                                    <th class="text-center" scope="col" style="width: 12.5%;">Id Material</th>
-                                    <th class="text-center" scope="col" style="width: 12.5%;">Name material</th>
-                                    <th class="text-center" scope="col" style="width: 12.5%;">DVT</th>
-                                    <th class="text-center" scope="col" style="width: 12.5%;">type</th>
-                                    <th class="text-center" scope="col" style="width: 12.5%;">Description</th>
-                                    <th class="text-center" scope="col" style="width: 12.5%;">Price</th>
+                                    <th class="text-center" scope="col" style="width: 12.5%;">Mã nguyên liệu</th>
+                                    <th class="text-center" scope="col" style="width: 12.5%;">Tên nguyên liệu</th>
+                                    <th class="text-center" scope="col" style="width: 12.5%;">Đơn vị tính</th>
+                                    <th class="text-center" scope="col" style="width: 12.5%;">Loại nguyên liệu</th>
+                                    <th class="text-center" scope="col" style="width: 12.5%;">Mô tả</th>
+                                    <th class="text-center" scope="col" style="width: 12.5%;">Giá tiền</th>
                                     <th style="width: 2%;"></th>
                                     <th style="width: 2%;"></th>
                                 </tr>
@@ -147,17 +147,17 @@
                 
                     
                                                   <div class="mb-3">
-                                                      <label for="inputText{{ $nguyenlieu->getMANL() }}" class="form-label">Name Material</label>
+                                                      <label for="inputText{{ $nguyenlieu->getMANL() }}" class="form-label">Tên nguyên liệu:</label>
                                                       <input type="text" class="form-control" id="inputText{{ $nguyenlieu->getMANL() }}"
                                                           value="{{ $nguyenlieu->getTENNL() }}" name="TENNL" required>
                                                   </div>
                                                   <div class="mb-3">
-                                                    <label for="DVT{{ $nguyenlieu->getMANL() }}" class="form-label">DVT</label>
+                                                    <label for="DVT{{ $nguyenlieu->getMANL() }}" class="form-label">Đơn vị tính:</label>
                                                     <input type="text" class="form-control" id="inputText{{ $nguyenlieu->getMANL() }}"
                                                     value="{{ $nguyenlieu->getDVT() }}" name="DVT" required>
                                                   </div>
                                                   <div class="mb-3">
-                                                      <label for="phone{{ $nguyenlieu->getMANL() }}" class="form-label">Type</label>
+                                                      <label for="phone{{ $nguyenlieu->getMANL() }}" class="form-label">Loại nguyên liệu:</label>
                                                       <div class="col-sm-10">
                                                         <select class="form-select" name="LOAI" id="position">
                                                           <option value="Cu">cu</option>
@@ -166,12 +166,12 @@
                                                     </div>
                                                   </div>
                                                   <div class="mb-3">
-                                                  <label for="Description{{ $nguyenlieu->getMANL() }}" class="form-label">Description</label>
+                                                  <label for="Description{{ $nguyenlieu->getMANL() }}" class="form-label">Mô tả:</label>
                                                   <textarea type="number" class="form-control" id="inputText{{ $nguyenlieu->getMANL() }}"
                                                        name="MOTA" required>{{ $nguyenlieu->getMOTA() }}</textarea>
                                               </div>
                                                   <div class="mb-3">
-                                                    <label for="price{{ $nguyenlieu->getMANL() }}" class="form-label">GIA</label>
+                                                    <label for="price{{ $nguyenlieu->getMANL() }}" class="form-label">Giá tiền:</label>
                                                     <input type="number" class="form-control" id="inputText{{ $nguyenlieu->getMANL() }}"
                                                         value="{{ $nguyenlieu->getGIA() }}" name="GIA" required>
                                                 </div>
@@ -195,12 +195,12 @@
                                   <div class="modal-dialog">
                                       <div class="modal-content">
                                           <div class="modal-header">
-                                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa nguyen lieu</h5>
+                                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa nguyên liệu</h5>
                                               <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                   aria-label="Close"></button>
                                           </div>
                                           <div class="modal-body">
-                                              <p>Bạn có chắc chắn muốn xóa nguyen lieu này?</p>
+                                              <p>Bạn có chắc chắn muốn xóa nguyên liệu này?</p>
                                           </div>
                                           <div class="modal-footer">
                                               <button type="button" class="btn btn-secondary"

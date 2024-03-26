@@ -284,37 +284,37 @@
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.index') }}">
           <i class="bi bi-grid"></i>
-          <span>Home</span>
+          <span>Trang chủ</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.employee') }}">
           <i class="bi bi-people"></i>
-          <span>Employee</span>
+          <span>Nhân viên</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.material') }}">
           <i class="fa-brands fa-stack-overflow"></i>
-          <span>Material</span>
+          <span>Nguyên liệu</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.table') }}">
           <i class="fa-solid fa-table-cells"></i>
-          <span>Table</span>
+          <span>Đặt bàn</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.typeproduct') }}">
           <i class="fa-solid fa-tag"></i>
-          <span>Type Product</span>
+          <span>Loại sản phẩm</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{ route('Admin.product') }}">
           <i class="fa-solid fa-bowl-food"></i>
-          <span>Product</span>
+          <span>Sản phẩm</span>
         </a>
       </li>
     </ul>

@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="pagetitle">
-    <h1>Type Product</h1>
+    <h1>Loại sản phẩm</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active"><a href="{{ route('Admin.index') }}">Home</a></li>
-        <li class="breadcrumb-item active">Type Product</li>
+        <li class="breadcrumb-item active"><a href="{{ route('Admin.index') }}">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Loại sản phẩm</li>
       </ol>
     </nav>
   </div><!-- End Page Title -->
@@ -15,7 +15,7 @@
   <section class="section Home">
     <div class="row justify-content-center">
       <div class="card-body">
-          <h5 class="card-title">Add Type Product</h5>
+          <h5 class="card-title">Thêm loại sản phẩm</h5>
   
             <!-- Horizontal Form -->
             <form method="POST" action="{{ route('admin.typeproduct.add') }}" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
               <div class="row mb-3">
                 
               <div class="row mb-3">
-                <label for="Type" class="col-sm-2 col-form-label">Name Type</label>
+                <label for="Type" class="col-sm-2 col-form-label">Tên loại sản phẩm:</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control"  id="inputTENLOAI" 
                   value="{{ old('TENLOAISP') }}" name="TENLOAISP" required>
@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Lưu</button>
               </div>
             </form><!-- End Horizontal Form -->
   
@@ -53,13 +53,13 @@
                   <li><a class="dropdown-item" href="#">This Year</a></li>
                 </ul>
               </div>
-              <h5 class="card-title">Type List <span>| Today</span></h5>
+              <h5 class="card-title">Danh sách loại sản phẩm <span>| Today</span></h5>
 
               <table class="table table-bordered table-striped table-hover datatable">
                 <thead>
                   <tr>
-                    <th class="text-center" scope="col" style="width: 12%;">ID Type</th>
-                    <th class="text-center" scope="col" style="width: 40%;">Name Type</th>
+                    <th class="text-center" scope="col" style="width: 12%;">Mã loại sản phẩm</th>
+                    <th class="text-center" scope="col" style="width: 40%;">Tên loại sản phẩm</th>
                     <th style="width: 2%;"></th>
                     <th style="width: 2%;"></th>
                   </tr>
@@ -104,7 +104,7 @@
                                   @method('PUT')
 
                                   <div class="mb-3">
-                                      <label for="inputText{{ $loaisp->getMALOAISP() }}" class="form-label">Name Type</label>
+                                      <label for="inputText{{ $loaisp->getMALOAISP() }}" class="form-label">Tên loại sản phẩm:</label>
                                       <input type="text" class="form-control" id="inputText{{ $loaisp->getMALOAISP() }}"
                                           value="{{ $loaisp->getTENLOAISP() }}" name="TENLOAISP" required>
                                   </div>
@@ -127,12 +127,12 @@
                   <div class="modal-dialog">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa Loại</h5>
+                              <h5 class="modal-title fs-5" id="deleteModalLabel">Xóa loại sản phẩm</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal"
                                   aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                              <p>Bạn có chắc chắn muốn xóa Loại này?</p>
+                              <p>Bạn có chắc chắn muốn xóa loại sản phẩm này?</p>
                           </div>
                           <div class="modal-footer">
                               <button type="button" class="btn btn-secondary"

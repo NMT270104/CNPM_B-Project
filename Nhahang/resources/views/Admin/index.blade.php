@@ -6,7 +6,7 @@
     <h1>Home</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active"><a href="{{ route('Admin.index') }}">Home</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('Admin.index') }}">Trang chủ</a></li>
         
       </ol>
     </nav>
