@@ -76,7 +76,24 @@ class AdminProductController extends Controller
     
     $Sanpham = Sanpham::findOrFail($MASP);
 
-    $Sanpham->update($request->all());
+        $Sanpham->setTENSP($request->input('TENSP'));
+        $Sanpham->setMALOAISP($request->input('MALOAISP'));
+        $Sanpham->setDVT($request->input('DVT'));
+        $Sanpham->setGIA($request->input('GIA'));
+        $Sanpham->setMOTA($request->input('MOTA'));
+        //$Sanpham->setIMAGE("no image");
+
+        if ($request->hasFile('IMAGE')) {
+            $imageName = $Sanpham->getMASP().".".$request->file('IMAGE')->extension();
+            Storage::disk('public')->put($imageName,
+            file_get_contents($request->file('IMAGE')->getRealPath())
+            );
+            $Sanpham->save();
+            $Sanpham->setImage($imageName);
+            
+        }
+
+    //$Sanpham->update($request->all());
 
     return back()->with('success', 'Cập nhật sản phẩm thành công!');
     

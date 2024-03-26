@@ -129,10 +129,10 @@
                       @endif --}}
 
                     </td>
-                    <td  class="text-center">{{ $sanpham->getDVT() }}</td>
-                    <td  class="text-center">{{ $sanpham->getGIA() }}</td>
-                    <td  class="text-center">{{ $sanpham->getMOTA() }}</td>
-                    <td  class="text-center">{{ $sanpham->getImage() }}</td>
+                    <td style="margin-top:45%" class="text-center">{{ $sanpham->getDVT() }}</td>
+                    <td style="margin-top:45%" class="text-center">{{ $sanpham->getGIA() }}</td>
+                    <td style="margin-top:45%" class="text-center">{{ $sanpham->getMOTA() }}</td>
+                    <td  class="text-center"><img src="{{asset('/storage/' . $sanpham->getImage()) }}" alt="" class="card-img-top"></td>
                     <td>
                       <button type="button" class="border border-2 border-black text-center"
                           data-bs-toggle="modal"
