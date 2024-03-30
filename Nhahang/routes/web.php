@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get("/Admin/Home","App\Http\Controllers\Admin\AdminHomeController@index")->name("Admin.index");
+Route::middleware('auth')->group(function(){
+Route::get("/","App\Http\Controllers\Admin\AdminHomeController@index")->name("Admin.index");
+});
 
-
-
+Route::middleware('admin')->group(function(){
 Route::get("/Admin/Employee","App\Http\Controllers\Admin\AdminEmployeeController@index")->name("Admin.employee");
 Route::post('/check-manv', 'App\Http\Controllers\Admin\AdminEmployeeController@checkMANV')->name('check.manv');
 //CRUD nhanvien
@@ -64,10 +65,8 @@ Route::get("/Admin/Product/{MASP}/edit","App\Http\Controllers\Admin\AdminProduct
 Route::put('Admin/Product/{MASP}', 'App\Http\Controllers\Admin\AdminProductController@update')->name('admin.product.update');
 Route::delete('/Admin/Product/{MASP}/delete','App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
 
+});
+
+Auth::routes();
 
 
-
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

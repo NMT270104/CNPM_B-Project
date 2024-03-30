@@ -39,10 +39,26 @@
               <div class="row mb-3">
                 <label for="Id Dish" class="col-sm-2 col-form-label">Id Dish</label>
                 <div class="col-sm-10">
-                  <select  class="form-select"  name="position" id="Id Dish">
-                    <option value="Sales">mon001</option>
-                    <option value="Serve">mon002</option>
-                  </select>
+                  <select name="countries" id="monans" multiple>
+                    <option value="1">Afghanistan</option>
+                    <option value="2">Australia</option>
+                    <option value="3">Germany</option>
+                    <option value="4">Canada</option>
+                    <option value="5">Russia</option>
+                </select>
+                <input type="number" class="form-control" name="quantities[]" placeholder="Số lượng" min="1">
+                <script>
+                  // Lắng nghe sự kiện khi select thay đổi
+document.querySelectorAll('select[name="dish_quantities[]"]').forEach(select => {
+    select.addEventListener('change', function() {
+        // Lấy input số lượng cùng vị trí với select
+        const quantityInput = this.parentNode.querySelector('input[type="number"]');
+        // Đặt giá trị mặc định cho input số lượng là 1 nếu không có món nào được chọn
+        quantityInput.value = this.value === '' ? 1 : '';
+    });
+});
+
+                </script>
                 </div>
               </div>
               <div class="row mb-3">
