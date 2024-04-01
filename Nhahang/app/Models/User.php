@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'position',
+        'balance',
     ];
 
     /**
@@ -42,4 +44,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function getRole(){
+        return$this->attributes['role'];
+        }
+        public function setRole($role){
+        $this->attributes['role'] = $role;
+        }
 }

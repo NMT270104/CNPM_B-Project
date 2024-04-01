@@ -9,7 +9,6 @@ class Nhanvien extends Model
 {
     protected $primaryKey = 'MANV';
     protected $fillable = ['MANV', 'NHOM_ID', 'HOTEN', 'SDT', 'NGVL', 'MATKHAU', 'CHUCVU'];
-
     public function getMANV() {
         return $this
         ->attributes['MANV'];

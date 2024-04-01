@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Nhanvien;
+use App\Models\Nhanvien; 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 class AdminEmployeeController extends Controller
@@ -20,7 +20,7 @@ class AdminEmployeeController extends Controller
 public function add(Request $request)
 {
     $validator = Validator::make($request->all(), [
-        "MANV" => "required|",
+        "MANV" => "required|unique:nhanviens,MANV",
         "HOTEN" => "required|max:255",
         "SDT" => "required|numeric",
         'CHUCVU' => 'required',
